@@ -64,13 +64,21 @@ public class App {
 
         if (usernameCheckResult == null && passwordCheckResult == null && emailCheckResult == null && ageCheckResult == null) {
             resultMessage = "User was registered.";
-            System.out.println(resultMessage);
-            return resultMessage;
         }
-        else {
-            resultMessage = resultMessage + usernameCheckResult + passwordCheckResult + emailCheckResult + ageCheckResult;
-            System.out.println(resultMessage);
-            return resultMessage;
+        if (!(usernameCheckResult == null)) {
+            resultMessage = resultMessage + usernameCheckResult;
         }
+        if (!(passwordCheckResult == null)) {
+            resultMessage = resultMessage + passwordCheckResult;
+        }
+        if (!(emailCheckResult == null)) {
+            resultMessage = resultMessage + emailCheckResult;
+        }
+        if (!(ageCheckResult == null)) {
+            resultMessage = resultMessage + ageCheckResult;
+        }
+
+        System.out.println(resultMessage);
+        return resultMessage;
     }
 }
