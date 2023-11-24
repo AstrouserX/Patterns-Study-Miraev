@@ -1,7 +1,10 @@
 package Builder.requests.reqres;
 
 import Builder.requests.Request;
+import com.google.gson.Gson;
 import org.json.JSONObject;
+
+import java.lang.reflect.Type;
 
 public class ReqresRequests extends Request {
     ReqresRequests() {}
@@ -52,6 +55,10 @@ public class ReqresRequests extends Request {
             sendPost();
             return ReqresRequests.this;
         }
+    }
+
+    public User GetSerializedObject() {
+        return new Gson().fromJson(getJson().toString(), User.class);
     }
 
     public class UpdateUser{

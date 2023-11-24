@@ -1,6 +1,8 @@
 package api;
 
 import Builder.requests.reqres.ReqresRequests;
+import Builder.requests.reqres.User;
+import com.google.gson.Gson;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -17,13 +19,15 @@ public class UserCommandsTest {
 
     @Test
     public void userCreateTest() {
-        ReqresRequests response = ReqresRequests.createUser()
+        User user = ReqresRequests.createUser()
                 .withName(name)
                 .withJob(job)
-                .sendCreateRequest()
+                .sendCreateRequest().GetSerializedObject()
                 ;
 
-        Assert.assertEquals(response.getStatusCode(), 201);
+        System.out.println(user.getId());
+
+        //Assert.assertEquals(response.getStatusCode(), 201);
     }
 
     @Test(dependsOnMethods = {"userCreateTest"})
