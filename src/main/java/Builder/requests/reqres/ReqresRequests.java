@@ -58,7 +58,7 @@ public class ReqresRequests extends Request {
     }
 
     public User GetSerializedObject() {
-        return new Gson().fromJson(getJson().toString(), User.class);
+        return new Gson().fromJson(getJson(), User.class);
     }
 
     public class UpdateUser{

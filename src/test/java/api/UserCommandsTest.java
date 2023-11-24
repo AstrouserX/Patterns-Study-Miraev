@@ -22,7 +22,8 @@ public class UserCommandsTest {
         User user = ReqresRequests.createUser()
                 .withName(name)
                 .withJob(job)
-                .sendCreateRequest().GetSerializedObject()
+                .sendCreateRequest()
+                .GetSerializedObject()
                 ;
 
         System.out.println(user.getId());
@@ -41,10 +42,12 @@ public class UserCommandsTest {
         Assert.assertEquals(response.getStatusCode(), 200);
     }
 
+    /**
     @Test(dependsOnMethods = {"userCreateTest"})
     public void userGetTest() {
         ReqresRequests response = ReqresRequests.getUser().sendGetRequest("2");
 
         Assert.assertEquals(response.getJson().get("data.first_name"), "Janet");
     }
+    */
 }

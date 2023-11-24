@@ -20,11 +20,12 @@ public class Request {
         return given()
                 .filter(new RequestLoggingFilter())
                 .filter(new ResponseLoggingFilter())
-                .filter(new ErrorLoggingFilter());
+                .filter(new ErrorLoggingFilter())
+                ;
     }
 
-    public JsonPath getJson() {
-        return resp.then().extract().jsonPath();
+    public String getJson() {
+        return resp.then().extract().response().asString();
     }
 
     public int getStatusCode() {
